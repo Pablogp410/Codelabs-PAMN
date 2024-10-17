@@ -9,3 +9,8 @@ Codelabs de PAMN
 
 ![image](https://github.com/user-attachments/assets/84f533fd-31f6-4b15-9693-2f93d5d3735e)
 
+3. Dice Roller
+
+![image](https://github.com/user-attachments/assets/d3a21f1d-4d83-420e-9d52-c5ec949e031c)
+
+
