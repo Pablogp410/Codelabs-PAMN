@@ -48,12 +48,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             BusinessAppCardTheme {
                 Scaffold(modifier = Modifier.fillMaxSize(), containerColor = Color.Black) { innerPadding ->
-                    ImageNameTitle(
+                    BusinessCard(
                         name = "Pablo González Pérez",
                         title = "Computer Science Student",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                    ContactInfo(
                         phone="+34 000 000 000",
                         username="@Pablogp410",
                         email="pablogp01@gmail.com",
@@ -95,9 +92,9 @@ fun ImageNameTitle(name:String, title: String, modifier: Modifier = Modifier){
     val image = painterResource(R.drawable.android_logo)
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier=modifier.fillMaxSize()
+        //modifier=modifier.fillMaxSize()
     ){
-        Spacer(Modifier.padding(top=250.dp))
+        //Spacer(Modifier.padding(top=250.dp))
         Image(
             painter = image,
             contentDescription = "Android",
@@ -111,14 +108,14 @@ fun ImageNameTitle(name:String, title: String, modifier: Modifier = Modifier){
 @Composable
 fun ContactInfo(phone:String, username:String, email:String, modifier: Modifier=Modifier){
     Column(
-        modifier=modifier.fillMaxSize()
-            .padding(horizontal = 80.dp)
+        //modifier=modifier.fillMaxSize()
+            //.padding(horizontal = 80.dp)
     ){
-        Spacer(Modifier.padding(top=700.dp))
+        //Spacer(Modifier.padding(top=700.dp))
         PhoneRow(phone, modifier)
-        Spacer(Modifier.padding(top=5.dp))
+        Spacer(Modifier.padding(vertical=5.dp))
         LinkRow(username, modifier)
-        Spacer(Modifier.padding(top=5.dp))
+        Spacer(Modifier.padding(vertical=5.dp))
         EmailRow(email, modifier)
     }
 }
@@ -183,17 +180,27 @@ fun EmailRow(email:String, modifier: Modifier){
     }
 }
 
+@Composable
+fun BusinessCard(name:String, title: String, phone: String, username:String, email:String, modifier: Modifier){
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+        modifier=modifier.fillMaxSize()
+    ){
+        ImageNameTitle(name, title, modifier)
+        Spacer(modifier.padding(vertical = 150.dp))
+        ContactInfo(phone, username, email, modifier)
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun BusinessCardPreview() {
     BusinessAppCardTheme {
         Scaffold(modifier = Modifier.fillMaxSize(), containerColor = Color.Black) { innerPadding ->
-            ImageNameTitle(
+            BusinessCard(
                 name = "Pablo González Pérez",
                 title = "Computer Science Student",
-                modifier = Modifier.padding(innerPadding)
-            )
-            ContactInfo(
                 phone="+34 000 000 000",
                 username="@Pablogp410",
                 email="pablogp01@gmail.com",
